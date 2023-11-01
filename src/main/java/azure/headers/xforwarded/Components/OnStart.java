@@ -18,7 +18,7 @@ public class OnStart implements ApplicationListener<ApplicationReadyEvent>
     public void onApplicationEvent(ApplicationReadyEvent event) {
         LOG.info("ApplicationListener#onApplicationEvent()");
         LOG.info("Application starting up..");
-        // LOG.info("Calling exit..");
-        // System.exit(1);
+        LOG.info("Calling exit..");
+        System.exit(1);
     }
 }
