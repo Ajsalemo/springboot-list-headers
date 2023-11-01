@@ -59,4 +59,5 @@ stages:
               AzureSpringCloud: '/subscriptions/4388fa06-bf66-4497-82c2-991ba75ecb97/resourceGroups/ansalemo-rg/providers/Microsoft.AppPlatform/Spring/ansalemo-springboot'
               AppName: 'ansalemo-sb-test'
               UseStagingDeployment: false
+              DeploymentName: 'ansalemo-sb-test'
               Package: '$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)'
