@@ -45,6 +45,6 @@ jobs:
       #       _buildArgumentsValues_
 
       - name: Deploy to Container Apps
-        run: az containerapp up -g "ansalemo-rg" -n "ansalemo-java-from-source" --source . --environment "ansalemo-acaenv-consumption"
+        run: az containerapp up -g "ansalemo-rg" -n "ansalemo-java-from-source" --source ${{ github.workspace }} --environment "ansalemo-acaenv-consumption"
 
 
