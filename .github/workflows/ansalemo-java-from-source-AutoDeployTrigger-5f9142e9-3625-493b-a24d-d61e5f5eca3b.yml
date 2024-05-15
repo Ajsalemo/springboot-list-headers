@@ -43,6 +43,8 @@ jobs:
       #     imageToBuild: ansalemoacr.azurecr.io/ansalemo-java-from-source:${{ github.sha }}
       #     _buildArgumentsKey_: |
       #       _buildArgumentsValues_
+      - name: check AZ CLI version
+        run: az --version && az extension list-available --output table
 
       - name: ls
         run: ls -lrta ${{ github.workspace }}
