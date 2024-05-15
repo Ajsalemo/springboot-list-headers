@@ -48,6 +48,6 @@ jobs:
         run: ls -lrta ${{ github.workspace }}
 
       - name: Deploy to Container Apps
-        run: az containerapp up -g "ansalemo-rg" -n "ansalemo-java-from-source" --source ${{ github.workspace }} --environment "ansalemo-acaenv-consumption" --build-env-vars BPM_JVM_VERSION=17 "BP_MAVEN_BUILD_ARGUMENTS=-Dmaven.test.skip=true"
+        run: az containerapp up -g "ansalemo-rg" -n "ansalemo-java-from-source" --source ${{ github.workspace }} --environment "ansalemo-acaenv-consumption" --build-env-vars BPM_JVM_VERSION=17
 
 
