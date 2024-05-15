@@ -31,17 +31,20 @@ jobs:
           tenant-id: ${{ secrets.ANSALEMOJAVAFROMSOURCE_AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.ANSALEMOJAVAFROMSOURCE_AZURE_SUBSCRIPTION_ID }}
 
-      - name: Build and push container image to registry
-        uses: azure/container-apps-deploy-action@v2
-        with:
-          appSourcePath: ${{ github.workspace }} 
-          registryUrl: ansalemoacr.azurecr.io
-          registryUsername: ${{ secrets.ANSALEMOJAVAFROMSOURCE_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.ANSALEMOJAVAFROMSOURCE_REGISTRY_PASSWORD }}
-          containerAppName: ansalemo-java-from-source
-          resourceGroup: ansalemo-rg
-          imageToBuild: ansalemoacr.azurecr.io/ansalemo-java-from-source:${{ github.sha }}
-          _buildArgumentsKey_: |
-            _buildArgumentsValues_
+      # - name: Build and push container image to registry
+      #   uses: azure/container-apps-deploy-action@v2
+      #   with:
+      #     appSourcePath: ${{ github.workspace }} 
+      #     registryUrl: ansalemoacr.azurecr.io
+      #     registryUsername: ${{ secrets.ANSALEMOJAVAFROMSOURCE_REGISTRY_USERNAME }}
+      #     registryPassword: ${{ secrets.ANSALEMOJAVAFROMSOURCE_REGISTRY_PASSWORD }}
+      #     containerAppName: ansalemo-java-from-source
+      #     resourceGroup: ansalemo-rg
+      #     imageToBuild: ansalemoacr.azurecr.io/ansalemo-java-from-source:${{ github.sha }}
+      #     _buildArgumentsKey_: |
+      #       _buildArgumentsValues_
+
+      - name: Deploy to Container Apps
+        run: az containerapp up -g "ansalemo-rg" -n "ansalemo-java-from-source" --source . --environment "ansalemo-acaenv-consumption"
 
 
