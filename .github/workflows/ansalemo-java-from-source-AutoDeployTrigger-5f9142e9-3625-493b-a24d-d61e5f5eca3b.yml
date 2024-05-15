@@ -46,6 +46,9 @@ jobs:
       - name: check AZ CLI version
         run: az --version && az extension list-available --output table
 
+      - name: Install az containerapps extension
+        run: az extension add --name containerapps
+
       - name: ls
         run: ls -lrta ${{ github.workspace }}
 
